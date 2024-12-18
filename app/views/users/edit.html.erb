@@ -1,0 +1,16 @@
+<%= form_with model: @user do |form| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <% @user.errors.full_messages.each do |msg| %>
+                <h2><%= msg %></h2>
+            <% end %>
+        </div>
+    <% end %>
+    <%= form.label :username, "Username:" %>
+    <%= form.text_field :username %><br><br>
+    <%= form.label :email, "Email:" %>
+    <%= form.email_field :email %><br><br>
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password, placeholder: "Leave blank if unchanged" %><br><br>
+    <%= form.submit %>
+<% end %>
